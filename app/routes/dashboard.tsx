@@ -3,10 +3,7 @@
 
 import { Container, Typography } from "@mui/joy";
 import { usePageEffect } from "../core/page";
-import { CheckboxTodoClass } from "../components/checkbox-todo-class";
-import { DateTimeTodoClass } from "../components/datetime-todo-class";
-import { CheckboxTodoFunction } from "../components/checkbox-todo-function";
-import { DatetimeTodoFunction } from "../components/datetime-todo-function";
+import { FormTodo } from "../components/form-todo";
 
 export const Component = function Dashboard(): JSX.Element {
   usePageEffect({ title: "TODO LIST" });
@@ -17,12 +14,8 @@ export const Component = function Dashboard(): JSX.Element {
         TODO LIST
       </Typography>
 
-      <DateTimeTodoClass />
-      <DatetimeTodoFunction />
+      <FormTodo />
 
-      <CheckboxTodoFunction label="Buy milk" />
-      <CheckboxTodoClass label="Buy chinsu" />
-      <CheckboxTodoClass label="Buy ajinomoto" />
     </Container>
   );
 };
