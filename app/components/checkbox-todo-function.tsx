@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Box from "@mui/joy/Box";
 import { Checkbox } from "@mui/joy";
 import Close from "@mui/icons-material/Close";
+import { buttonDeleteTodo } from "./button-delete-todo";
 
 interface checkbox {
   label: string;
   color?: string;
   icon?: string;
+
 }
 
 export const CheckboxTodoFunction = ({ label = "", icon = "" }: checkbox) => {

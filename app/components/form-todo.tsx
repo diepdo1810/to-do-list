@@ -3,16 +3,24 @@ import { Input } from "@mui/base/Input";
 import { Button } from "@mui/joy";
 import Box from "@mui/joy/Box";
 import { CheckboxTodoFunction } from "./checkbox-todo-function";
+import { ButtonDeleteTodo } from "./button-delete-todo";
 
 export const FormTodo = () => {
   const [label, setLabel] = useState<string>("");
   const [data, setData] = useState([]);
+
 
   const handleAdd = () => {
     setLabel(label);
     setData([...data, label]);
     setLabel("");
   };
+
+  const handleDelete = (indexToRemove: number) => {
+    setData((prevState) => {
+      return prevState.filter((item, i) => i !== indexToRemove);
+    })
+  }
 
   return (
     <Box
@@ -50,11 +58,13 @@ export const FormTodo = () => {
           width: 300,
           "& > div": { p: 2, borderRadius: "md", display: "flex" },
         }}>
-        {data.map((item, index) => (
+        {data.length > 0 && data.map((item, index) => (
           <Box key={index}>
             <CheckboxTodoFunction label={item} />
+            <ButtonDeleteTodo text="Delete" classNameEl="w-full" onClick={() => handleDelete(index)} />
           </Box>
         ))}
+        {data.length === 0 && <Box>No data</Box>}
       </Box>
     </Box>
   );
